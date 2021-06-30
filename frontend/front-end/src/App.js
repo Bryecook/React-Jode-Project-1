@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from './components/Home'
+import Tweet from './components/Tweet'
 
 
 
@@ -11,18 +13,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Nav />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/tweets" exact component={Tweet} />
+        </Switch>
       </header>
     </div>
     </BrowserRouter>
